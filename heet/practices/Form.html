@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function updatePriceAndImage() {
+            // Get the selected product
+            var selectedProduct = document.getElementById("Product").value;
+
+            // Define a price map based on the selected product
+            var priceMap = {
+                "HeadPhone": { price: 1500, image: "new_headphone.jpg" },
+                "AirPods": { price: 500, image: "airpods.jpg" },
+                "SmartWatch": { price: 2000, image: "smart_watch.jpg" },
+                "Speakers": { price: 1000, image: "speakers.jpg" }
+            };
+
+            // Update the Price field with the corresponding price
+            document.getElementById("Price").value = priceMap[selectedProduct] ? priceMap[selectedProduct].price : "";
+
+            // Update the Image source with the corresponding product image
+            var productImage = document.getElementById("Product");
+            productImage.src = priceMap[selectedProduct] ? priceMap[selectedProduct].image : "";
+            productImage.alt = selectedProduct + " Image";
+        }
+    </script>
+
+    <style>
+        #submit {
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            height: 25px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="Form.php">
+        <table border="2px">
+            <tr>
+                <td>Enter Name:</td>
+                <td><input placeholder="Enter Name" name="Name" id="Name"></td>
+            </tr>
+
+            <tr>
+                <td><label for="Product">Choose Product:</label></td>
+                <td>
+                    <select name="Product" id="Product" onchange="updatePriceAndImage()">
+                        <option value="HeadPhone" id="HeadPhone">HeadPhone</option>
+                        <option value="AirPods" id="AirPods">AirPods</option>
+                        <option value="SmartWatch" id="SmartWatch">SmartWatch</option>
+                        <option value="Speakers" id="Speakers">Speakers</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Price:</td>
+                <td><input placeholder="Enter Price" name="Price" id="Price" readonly></td>
+            </tr>
+
+            <tr>
+                <td>Quantity:</td>
+                <td><input placeholder="Enter Quantity" name="Quantity" id="Quantity"></td>
+            </tr>
+
+            <tr> 
+                <td>Product Image:</td>
+                <td colspan="2"><img id="Product" src="new_headphone.jpg" width="100" height="100" alt="">
+                    <img id="Product" src="AirPods.jpg" width="100" height="100" alt="">
+                    <img id="Product" src="smart_watch.jpg" width="100" height="100" alt="">
+                    <img id="Product" src="Speakers.jpg" width="100" height="100" alt="">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit" name="submit" id="submit">ClickMe</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+

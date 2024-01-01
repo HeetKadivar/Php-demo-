@@ -1,0 +1,15 @@
+
+
+if(isset($_REQUEST['mul'])) {
+    $num1 = ($_REQUEST['num1']);
+    $num2 = ($_REQUEST['num2']);
+    echo $num1 + $num2;
+    echo "<br>";
+} else if(isset($_REQUEST['sub'])) {
+    $num1 = ($_REQUEST['num1']);
+    $num2 = ($_REQUEST['num2']);
+    echo $num1 - $num2;
+    echo "<br>";
+} else {
+    echo "Please Fill the Field";
+}

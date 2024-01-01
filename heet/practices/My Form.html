@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* background: url('') center no-repeat fixed; */
+            /* background-size: 75% 100%; */
+            font-family: Arial, sans-serif;
+            color:black;
+        }
+
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-form {
+           background-color: #00acb58f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+
+        .login-form input {
+            background-color:aliceblue;
+            color:black;
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 ;
+            box-sizing: border-box;
+             border: none; 
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            /* background:rgba(255, 255, 255, 0);; */
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .login-form button:hover {
+            background-color: #F9ED69;
+        }
+    </style>
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="My Form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" name="button">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

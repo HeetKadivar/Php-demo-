@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function updatePrice() {
+            // Get the selected product
+            var selectedProduct = document.getElementById("Product").value;
+
+            // Define a price map based on the selected product
+            var priceMap = {
+                "HeadPhone": 1500,
+                "AirPods": 500,
+                "SmartWatch": 2000,
+                "Speakers": 1000
+            };
+
+            // Update the Price field with the corresponding price
+            document.getElementById("Price").value = priceMap[selectedProduct] || "";
+        }
+    </script>
+
+    <style>
+        #submit{
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            height: 25px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="Product.php">
+    <table border="2px">
+            <tr>
+                <td>Enter Name:</td>
+                <td><input placeholder="Enter Name" name="Name" id="Name"></td>
+            </tr>
+    
+            <tr>
+                <td><label for="Product">Choose Product:</label></td>
+                <td>
+                    <select name="Product" id="Product" onchange="updatePrice()">
+                        <option value="HeadPhone">HeadPhone</option>
+                        <option value="AirPods">AirPods</option>
+                        <option value="SmartWatch">SmartWatch</option>
+                        <option value="Speakers">Speakers</option>
+                    </select>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>Price:</td>
+                <td><input placeholder="Enter Price" name="Price" id="Price"></td>
+            </tr>
+
+            <tr>
+                <td>Quantity:</td>
+                <td><input placeholder="Enter Quantity" name="Quantity" id="Quantity"></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><button type="submit" name="submit" id="submit">ClickMe</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
