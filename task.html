@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #submit{
+            width: 100%;
+            background-color: #3559E0;
+            color: aliceblue;
+            height:25px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="task.php">
+        <table border="2">
+            <tr>
+                <td><label for="books">select books:</label></td>
+                <td>
+                    <select id="books" name="books" required>
+                        <option value="Bhagvat Geeta">Bhagvat Geeta</option>
+                        <option value="Law of attraction">Law of attraction</option>
+                        <option value="The inheritance of loss">The inheritance of loss</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">country:</label></td>
+                <td>
+                    <select id="country" name="country" required>
+                        <option value="India">India</option>
+                        <option value="U.S.A">U.S.A</option>
+                        <option value="Russia">Russia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="shipped_country">shipped country:</label></td>
+                <td>
+                    <select id="shipped_country" name="shipped_country" required onchange="updateShippingCharges()">
+                        <option value="Australia" data-charges="7.5%">Australia</option>
+                        <option value="Brazil" data-charges="6.7%">Brazil</option>
+                        <option value="Canada" data-charges="4.5%">Canada</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="shipping_charges">Shipping Charges:</label></td>
+                <td>
+                    <input type="text" id="shipping_charges" name="shipping_charges" readonly>
+                </td>
+            </tr>
+            <td colspan="2"><button type="submit" name="submit" id="submit">Click Me...</button></td>
+        </table>
+    </form>
+
+    <script>
+        function updateShippingCharges() {
+            var selectedCountry = document.getElementById("shipped_country");
+            var selectedOption = selectedCountry.options[selectedCountry.selectedIndex];
+            var shippingCharges = selectedOption.getAttribute("data-charges");
+
+            document.getElementById("shipping_charges").value = shippingCharges;
+        }
+    </script>
+</body>
+</html>
